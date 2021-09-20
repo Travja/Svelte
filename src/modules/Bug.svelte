@@ -2,7 +2,7 @@
 <script>
     import CloseButton from './CloseButton.svelte';
     import {createEventDispatcher} from 'svelte';
-    import {fly} from 'svelte/transition';
+    import {fly, fade} from 'svelte/transition';
 
     export let status = "Unconfirmed";
     export let title = "Untitled";
@@ -46,6 +46,7 @@
 
 </script>
 
+<div class="modal" transition:fade>
 <div class="bug"
      bind:this={block}
      in:fly={{ x: -200, duration: 500 }} out:fly={{ x: -200, duration: 250 }}>
@@ -75,15 +76,31 @@
         {/if}
     </div>
 </div>
+</div>
 
 <style>
+    .modal {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
     .bug {
         position: relative;
-        margin: 20px;
+        margin: 20px auto;
         padding: 20px;
-        min-width: 200px;
-        max-width: 500px;
-        background-color: rgba(0, 0, 0, 0.2);
+        min-width: 500px;
+        max-width: 1000px;
+        background-color: var(--bg-color);
         border-radius: 10px;
         box-shadow: 5px 5px 10px #000;
     }
