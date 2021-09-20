@@ -8,7 +8,6 @@
     export let index;
 
     let statuses = {
-        undefined: "Unconfirmed",
         unconfirmed: "Unconfirmed",
         confirmed: "Confirmed",
         rejected: "Rejected",

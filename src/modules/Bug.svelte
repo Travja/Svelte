@@ -10,6 +10,8 @@
     export let comments = [];
     export let key = {};
 
+    const dispatch = createEventDispatcher();
+
     let desc;
     let isFocused = false;
 
@@ -19,10 +21,14 @@
         isFocused = true;
     };
 
-    const loseFocus = () => {
+    const loseFocus = (e) => {
         desc.contentEditable = false;
-        console.log(description);
         isFocused = false;
+        updated(description);
+    };
+
+    const updated = (e) => {
+        dispatch('updated', {description});
     };
 
     export const addComment = (comment) => {
@@ -34,7 +40,6 @@
         block.addEventListener(evt, callback);
     };
 
-    const dispatch = createEventDispatcher();
     const closeClicked = () => {
         dispatch('close', {});
     };

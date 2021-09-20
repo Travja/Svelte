@@ -14,7 +14,7 @@
         },
         {title: "This is bug 2", status: "rejected"},
         {title: "This is bug 3", status: "inprogress", comments: ["Comment one", "Comment two.. this works."]},
-        {key: 3}
+        {}
     ];
 
     const cards = [
@@ -35,6 +35,10 @@
             closeBug();
         } else showBug(bugs[idx]);
         activeIndex = idx;
+    };
+
+    const handleUpdated = evt => {
+        bugs[activeIndex].description = evt.detail.description;
     };
 
     const closeBug = () => {
@@ -64,6 +68,7 @@
 {#if openBug}
     <Bug class="modal" bind:this={bugElm}
          {...openBug}
+         on:updated={handleUpdated}
          on:close={closeBug}/>
 {/if}
 
