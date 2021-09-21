@@ -1,5 +1,6 @@
 <script>
     import {onMount} from "svelte";
+
     export let float;
 
     let toggleSwitch;
@@ -15,19 +16,11 @@
     }
 
     const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
-    if (currentTheme) {
+    if (currentTheme)
         document.documentElement.setAttribute('data-theme', currentTheme);
-    }
 
-    onMount(() => {
-        if (currentTheme && currentTheme === 'dark') {
-            toggleSwitch.checked = true;
-        }
-    });
-
-    setTimeout(() => {
-        document.body.classList.add("transitions-enabled");
-    }, 1000);
+    onMount(() => toggleSwitch.checked = currentTheme && currentTheme === 'dark');
+    setTimeout(() => document.body.classList.add("transitions-enabled"), 1000);
 </script>
 
 <div class="theme-switch-wrapper" on:change={switchTheme} style='--float: {float ? float : "none"}'>

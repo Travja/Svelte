@@ -1,7 +1,6 @@
 <script>
     import Bug from './modules/Bug.svelte';
     import BugListItem from './modules/BugListItem.svelte';
-    import Card from './modules/Card.svelte';
     import ThemeSwitcher from './modules/ThemeSwitcher.svelte';
 
     let bugObjs = [];
@@ -20,7 +19,7 @@
     const cards = [
         {src: "https://analyticsindiamag.com/wp-content/uploads/2020/10/7d744a684fe03ebc7e8de545f97739dd.jpg"},
         {src: "https://thumbs.dreamstime.com/b/rainbow-love-heart-background-red-wood-60045149.jpg"},
-        {src: "https://lh3.googleusercontent.com/proxy/VBLCheaRpLRIAqSfSgwP2eeXXBmfGCcwwoA-lecEX5QdXsToZ-k5AwFA9I9MzI_9cO2tQaiFnYQDyYMp0Ymxy6VwD175_oxjMkEQPHNSw1iQSJpNH43_8cydIa1sSzmvqy4r_NVRfbLcHJoe96x2HjbwiAuE"}
+        {src: "https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"}
     ];
 
     let list;
@@ -56,19 +55,24 @@
     <h1>Travja's Bug Tracker</h1>
 </header>
 <div class="content">
-    <ThemeSwitcher float="right"/>
-    <h3>Bugs</h3>
-    <ul bind:this={list}>
-        {#each bugs as bug, i}
-            <BugListItem {...bug} index={i} on:click={clickBug}/>
-        {/each}
-    </ul>
-    <div class="wrapper">
-        {#each cards as card}
-            <Card {...card}/>
-        {/each}
+    <div>
+        <ThemeSwitcher float="right"/>
+        <h1>Bugs</h1>
+        <ul bind:this={list}>
+            {#each bugs as bug, i}
+                <BugListItem {...bug} index={i} on:click={clickBug}/>
+            {/each}
+        </ul>
+        <!--    <div class="wrapper">-->
+        <!--        {#each cards as card}-->
+        <!--            <Card {...card}/>-->
+        <!--        {/each}-->
+        <!--    </div>-->
     </div>
+    <div class="spacer"/>
+    <div class="footer">&copy; 2021 Travja</div>
 </div>
+
 
 {#if openBug}
     <Bug class="modal" bind:this={bugElm}
@@ -83,7 +87,7 @@
         box-shadow: 0 2px 8px #2e2e2e;
     }
 
-    h1 {
+    header h1 {
         margin: 0;
         padding: 30px;
         text-align: center;
@@ -99,8 +103,11 @@
     }
 
     .content {
+        display: flex;
+        flex-direction: column;
         margin: 15px auto;
         width: 80%;
+        flex-grow: 100;
     }
 
     .wrapper {
@@ -113,5 +120,10 @@
     ul {
         list-style-type: none;
         padding: 0;
+    }
+
+    .footer {
+        text-align: center;
+        font-size: 0.9em;
     }
 </style>
