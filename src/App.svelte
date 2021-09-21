@@ -52,17 +52,22 @@
     };
 </script>
 
-<ThemeSwitcher/>
-<h3>Bugs</h3>
-<ul bind:this={list}>
-    {#each bugs as bug, i}
-        <BugListItem {...bug} index={i} on:click={clickBug}/>
-    {/each}
-</ul>
-<div class="wrapper">
-    {#each cards as card}
-        <Card {...card}/>
-    {/each}
+<header>
+    <h1>Travja's Bug Tracker</h1>
+</header>
+<div class="content">
+    <ThemeSwitcher float="right"/>
+    <h3>Bugs</h3>
+    <ul bind:this={list}>
+        {#each bugs as bug, i}
+            <BugListItem {...bug} index={i} on:click={clickBug}/>
+        {/each}
+    </ul>
+    <div class="wrapper">
+        {#each cards as card}
+            <Card {...card}/>
+        {/each}
+    </div>
 </div>
 
 {#if openBug}
@@ -73,6 +78,31 @@
 {/if}
 
 <style>
+    header {
+        background-color: rgba(0, 0, 0, 0.3);
+        box-shadow: 0 2px 8px #2e2e2e;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 30px;
+        text-align: center;
+        font-family: "Segoe UI Black", sans-serif;
+        text-decoration: underline;
+        color: var(--accent-color);
+        text-shadow: 3px 3px 4px #2e2e2e;
+        letter-spacing: 3px;
+        font-size: 3em;
+        transition-property: color, background-color, text-shadow;
+        transition-duration: .3s;
+        transition-timing-function: ease-in-out;
+    }
+
+    .content {
+        margin: 15px auto;
+        width: 80%;
+    }
+
     .wrapper {
         display: flex;
         flex-direction: row;

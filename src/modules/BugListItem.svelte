@@ -22,8 +22,8 @@
 </script>
 
 <li on:click={clicked} {index} bind:this={base}>
-    <div class="status {status}">{statuses[status]}</div>
     <div class="title">{title}</div>
+    <div class="status {status}">{statuses[status]}</div>
     <div class="cmnt">{comments.length} comments</div>
 </li>
 
@@ -31,8 +31,8 @@
     li {
         display: flex;
         align-items: center;
-        border: 1px solid var(--fg-color);
-        padding: 10px;
+        border-bottom: 1px solid var(--fg-color);
+        padding: 20px 10px;
         transition: background-color .2s ease-out;
     }
 
@@ -42,15 +42,17 @@
     }
 
     .cmnt {
-        float: right;
         color: var(--disabled-fg-color);
     }
 
     .title {
         flex-grow: 1;
+        font-weight: bold;
+        font-size: 1.2em;
     }
 
     .status {
+        color: white;
         display: inline-block;
         background-color: #2e2e2e;
         padding: .4em;

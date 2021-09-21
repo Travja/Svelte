@@ -98,8 +98,7 @@
         position: relative;
         margin: 20px auto;
         padding: 20px;
-        min-width: 500px;
-        max-width: 1000px;
+        width: 70%;
         background-color: var(--bg-color);
         border-radius: 10px;
         box-shadow: 5px 5px 10px #000;

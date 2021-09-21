@@ -1,5 +1,6 @@
 <script>
     import {onMount} from "svelte";
+    export let float;
 
     let toggleSwitch;
 
@@ -29,7 +30,7 @@
     }, 1000);
 </script>
 
-<div class="theme-switch-wrapper" on:change={switchTheme}>
+<div class="theme-switch-wrapper" on:change={switchTheme} style='--float: {float ? float : "none"}'>
     <label class="theme-switch" for="checkbox">
         <input bind:this={toggleSwitch} type="checkbox" id="checkbox"/>
         <div class="slider round"></div>
@@ -42,6 +43,7 @@
     .theme-switch-wrapper {
         display: flex;
         align-items: center;
+        float: var(--float);
     }
 
     .theme-switch-wrapper em {

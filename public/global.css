@@ -6,6 +6,7 @@
     --button-bg-color: #f4f4f4;
     --button-fg-color: #333;
     --button-clicked: #ddd;
+    --accent-color: #ff4040;
 }
 
 :root[data-theme="dark"] {
@@ -16,6 +17,7 @@
     --button-bg-color: #2e2e2e;
     --button-fg-color: #eee;
     --button-clicked: #4a4a4a;
+    --accent-color: #caff93;
 }
 
 html, body {
@@ -28,13 +30,9 @@ body {
     color: var(--fg-color);
     background-color: var(--bg-color);
     margin: 0;
-    padding: 8px;
+    padding: 0;
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-}
-
-.transitions-enabled * {
-
 }
 
 .transitions-enabled {
