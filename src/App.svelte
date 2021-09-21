@@ -2,6 +2,7 @@
     import Bug from './modules/Bug.svelte';
     import BugListItem from './modules/BugListItem.svelte';
     import ThemeSwitcher from './modules/ThemeSwitcher.svelte';
+    import Footer from './modules/Footer.svelte';
 
     let bugObjs = [];
 
@@ -70,7 +71,7 @@
         <!--    </div>-->
     </div>
     <div class="spacer"/>
-    <div class="footer">&copy; 2021 Travja</div>
+    <Footer/>
 </div>
 
 
@@ -120,10 +121,5 @@
     ul {
         list-style-type: none;
         padding: 0;
-    }
-
-    .footer {
-        text-align: center;
-        font-size: 0.9em;
     }
 </style>
